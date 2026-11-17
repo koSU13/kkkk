@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>고수 | 스트릿풋볼 포트폴리오</title>
+<meta name="description" content="레저해양스포츠학과 고수의 개인 포트폴리오. 스트릿풋볼, 리더십, 국내외 대회 경험.">
+<!--
+  수정 가이드
+  - 새 내용은 각 섹션의 <p>, <li> 텍스트만 바꾸면 됩니다.
+  - 연락처(이메일, SNS), 사진, 대회 이름·성적은 제공되지 않아 넣지 않았습니다.
+    넣고 싶다면 <footer> 안이나 #about 섹션에 직접 추가하세요.
+  - 인터넷 연결이 없으면 웹폰트 대신 기본 한글 글꼴로 표시됩니다.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --concrete:#E6E4DE;
+    --paper:#F5F4F0;
+    --ink:#0F1B2D;
+    --sea:#0B4F6C;
+    --paint:#F2C230;
+    --muted:#4A5568;
+    --display:"Black Han Sans","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    --body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    --header-h:64px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:var(--header-h)}
+  body{
+    font-family:var(--body);
+    background:var(--concrete);
+    color:var(--ink);
+    line-height:1.75;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--sea);outline-offset:3px;border-radius:2px}
+  .wrap{width:min(1080px,100% - 40px);margin-inline:auto}
+
+  /* ---------- 헤더 / 메뉴 ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;height:var(--header-h);z-index:50;
+    background:rgba(230,228,222,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:2px solid var(--ink);
+  }
+  header .wrap{height:100%;display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:var(--display);font-size:1.5rem;text-decoration:none;letter-spacing:.02em}
+  nav ul{display:flex;gap:6px;list-style:none}
+  nav a{
+    display:block;padding:8px 14px;text-decoration:none;font-weight:500;font-size:.95rem;
+    border-bottom:3px solid transparent;
+  }
+  nav a:hover{border-bottom-color:var(--sea)}
+  nav a.active{border-bottom-color:var(--paint);font-weight:700}
+  .menu-btn{
+    display:none;background:none;border:2px solid var(--ink);color:var(--ink);
+    padding:6px 12px;font:inherit;font-weight:700;cursor:pointer;
+  }
+
+  /* ---------- 공통 섹션 ---------- */
+  section{padding:104px 0}
+  h2{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(2rem,5vw,3rem);line-height:1.2;margin-bottom:12px;
+  }
+  .lead{max-width:34em;color:var(--muted);margin-bottom:48px}
+
+  /* ---------- 홈 ---------- */
+  #home{
+    min-height:100vh;min-height:100svh;
+    padding:calc(var(--header-h) + 40px) 0 56px;
+    display:flex;align-items:center;
+    background:var(--concrete);
+  }
+  .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  .hero h1{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(6rem,22vw,14rem);line-height:.95;letter-spacing:-.02em;
+  }
+  .hero .tagline{font-size:clamp(1.1rem,2.4vw,1.4rem);font-weight:700;margin-top:20px}
+  .hero .sub{color:var(--muted);margin-top:8px;max-width:30em}
+  .facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;list-style:none}
+  .facts li{border:2px solid var(--ink);padding:2px 12px;font-size:.9rem;font-weight:500;background:var(--paper)}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+  .btn{
+    display:inline-block;padding:12px 24px;font-weight:700;text-decoration:none;
+    border:2px solid var(--ink);transition:background .15s,color .15s;
+  }
+  .btn.primary{background:var(--ink);color:var(--paper)}
+  .btn.primary:hover{background:var(--sea);border-color:var(--sea)}
+  .btn.ghost:hover{background:var(--paint)}
+
+  .court{width:100%;max-width:380px;justify-self:center;display:block}
+  .court path,.court circle,.court rect{
+    fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;
+    stroke-dasharray:1;stroke-dashoffset:1;
+    animation:draw 2.2s cubic-bezier(.6,.1,.2,1) forwards;
+  }
+  .court .paint{stroke:var(--paint);stroke-width:6}
+  .court .d2{animation-delay:.5s}
+  .court .d3{animation-delay:1s}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  /* ---------- 자기소개 ---------- */
+  #about{background:var(--paper);border-block:2px solid var(--ink)}
+  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:start}
+  .about-grid p+p{margin-top:16px}
+  dl.profile{border:2px solid var(--ink);background:var(--concrete)}
+  dl.profile div{display:grid;grid-template-columns:96px 1fr;padding:14px 18px;gap:12px}
+  dl.profile div+div{border-top:2px solid var(--ink)}
+  dl.profile dt{font-weight:700;color:var(--sea)}
+  dl.profile dd{font-weight:500}
+
+  /* ---------- 역량 ---------- */
+  .skills{display:grid;grid-template-columns:1.15fr 1fr;gap:20px}
+  .skill{border:2px solid var(--ink);padding:28px;background:var(--paper)}
+  .skill h3{font-size:1.2rem;margin-bottom:6px}
+  .skill p{color:var(--muted);font-size:.98rem}
+  .skill.lead-skill{
+    grid-row:span 3;background:var(--ink);color:var(--paper);
+    display:flex;flex-direction:column;justify-content:flex-end;min-height:340px;
+    border-color:var(--ink);
+  }
+  .skill.lead-skill h3{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,6vw,4rem);line-height:1.1;margin-bottom:12px}
+  .skill.lead-skill p{color:#C9D1DC;font-size:1.05rem;max-width:22em}
+  .skill.lead-skill .bar{width:56px;height:6px;background:var(--paint);margin-bottom:20px}
+
+  /* ---------- 프로젝트 ---------- */
+  #projects{background:var(--sea);color:var(--paper)}
+  #projects .lead{color:#CFE3EC}
+  .projects{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .project{
+    background:var(--paper);color:var(--ink);padding:32px;
+    border-left:10px solid var(--paint);
+    display:flex;flex-direction:column;
+  }
+  .project h3{font-size:1.35rem;line-height:1.4;margin-bottom:12px}
+  .project p{color:var(--muted);margin-bottom:20px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin-top:auto}
+  .tags li{background:var(--concrete);padding:2px 12px;font-size:.88rem;font-weight:500;border:1px solid var(--ink)}
+
+  /* ---------- 진로목표 ---------- */
+  .path{display:grid;grid-template-columns:repeat(3,1fr);position:relative;list-style:none;margin-top:8px}
+  .path::before{
+    content:"";position:absolute;left:0;right:0;top:14px;height:0;
+    border-top:3px dashed var(--ink);
+  }
+  .stop{position:relative;padding:48px 24px 0 0}
+  .stop::before{
+    content:"";position:absolute;top:0;left:0;width:30px;height:30px;
+    border-radius:50%;background:var(--concrete);border:3px solid var(--ink);
+  }
+  .stop.goal::before{background:var(--paint)}
+  .stop h3{font-family:var(--display);font-weight:400;font-size:1.6rem;line-height:1.3;margin-bottom:6px}
+  .stop p{color:var(--muted);font-size:.98rem}
+  .stop .when{display:inline-block;font-weight:700;color:var(--sea);margin-bottom:2px;font-size:.92rem}
+
+  /* ---------- 푸터 ---------- */
+  footer{background:var(--ink);color:#C9D1DC;padding:36px 0;font-size:.92rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  footer a{text-decoration:none;border-bottom:2px solid var(--paint)}
+
+  /* ---------- 반응형 ---------- */
+  @media (max-width:860px){
+    section{padding:80px 0}
+    .menu-btn{display:block}
+    nav{
+      position:absolute;top:var(--header-h);left:0;right:0;
+      background:var(--concrete);border-bottom:2px solid var(--ink);
+      display:none;
+    }
+    nav.open{display:block}
+    nav ul{flex-direction:column;gap:0;padding:8px 20px 16px}
+    nav a{padding:14px 0;border-bottom:1px solid rgba(15,27,45,.2);font-size:1.05rem}
+    nav a.active{border-bottom-color:var(--paint)}
+    .hero{grid-template-columns:1fr;gap:24px}
+    .court{max-width:220px;justify-self:start}
+    .about-grid,.skills,.projects{grid-template-columns:1fr}
+    .skill.lead-skill{grid-row:auto;min-height:260px}
+    .path{grid-template-columns:1fr;gap:32px}
+    .path::before{left:14px;right:auto;top:0;bottom:0;height:auto;border-top:0;border-left:3px dashed var(--ink)}
+    .stop{padding:0 0 0 52px}
+    .stop::before{left:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .court path,.court circle,.court rect{animation:none;stroke-dashoffset:0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#home" class="logo" aria-label="고수 홈으로">고수</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">메뉴</button>
+    <nav id="mainNav" aria-label="주요 메뉴">
+      <ul>
+        <li><a href="#home">홈</a></li>
+        <li><a href="#about">자기소개</a></li>
+        <li><a href="#skills">역량</a></li>
+        <li><a href="#projects">프로젝트</a></li>
+        <li><a href="#career">진로목표</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- 홈 -->
+  <section id="home">
+    <div class="wrap hero">
+      <div>
+        <h1>고수</h1>
+        <p class="tagline">스트릿풋볼로 세계를 향해 갑니다.</p>
+        <p class="sub">레저해양스포츠학과에서 공부하며, 리더십과 국내외 대회 경험을 쌓아가고 있습니다.</p>
+        <ul class="facts">
+          <li>레저해양스포츠학과</li>
+          <li>스트릿풋볼</li>
+          <li>리더십</li>
+          <li>국내외 대회 경험</li>
+        </ul>
+        <div class="actions">
+          <a class="btn primary" href="#projects">프로젝트 보기</a>
+          <a class="btn ghost" href="#career">진로목표 보기</a>
+        </div>
+      </div>
+
+      <!-- 스트릿 코트 라인 -->
+      <svg class="court" viewBox="0 0 300 420" role="img" aria-label="코트 라인 그림">
+        <rect pathLength="1" x="10" y="10" width="280" height="400" rx="4"/>
+        <path pathLength="1" class="d2" d="M10 210 H290"/>
+        <circle pathLength="1" class="paint d2" cx="150" cy="210" r="46"/>
+        <path pathLength="1" class="d3" d="M85 10 V70 H215 V10"/>
+        <path pathLength="1" class="d3" d="M85 410 V350 H215 V410"/>
+        <path pathLength="1" class="d3" d="M120 10 V35 H180 V10"/>
+        <path pathLength="1" class="d3" d="M120 410 V385 H180 V410"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 자기소개 -->
+  <section id="about">
+    <div class="wrap">
+      <h2>자기소개</h2>
+      <p class="lead">안녕하세요, 스트릿풋볼을 사랑하는 고수입니다.</p>
+      <div class="about-grid">
+        <div>
+          <p>저는 레저해양스포츠학과에서 스포츠를 폭넓게 공부하고 있고, 그중에서도 스트릿풋볼에 가장 큰 관심을 두고 있습니다.</p>
+          <p>저의 강점은 리더십입니다. 국내외 대회에 참가한 경험을 바탕으로 더 높은 무대를 준비하고 있습니다.</p>
+          <p>세계적인 선수가 되는 것이 목표이고, 선수 생활을 마친 뒤에는 행정가로 활동하는 것까지 그리고 있습니다.</p>
+        </div>
+        <dl class="profile">
+          <div><dt>이름</dt><dd>고수</dd></div>
+          <div><dt>전공</dt><dd>레저해양스포츠학과</dd></div>
+          <div><dt>관심분야</dt><dd>스트릿풋볼</dd></div>
+          <div><dt>강점</dt><dd>리더십</dd></div>
+          <div><dt>경험</dt><dd>국내외 대회</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 역량 -->
+  <section id="skills">
+    <div class="wrap">
+      <h2>역량</h2>
+      <p class="lead">경기장 안팎에서 제가 가진 힘입니다.</p>
+      <div class="skills">
+        <article class="skill lead-skill">
+          <div class="bar"></div>
+          <h3>리더십</h3>
+          <p>제가 가장 자신 있는 강점입니다.</p>
+        </article>
+        <article class="skill">
+          <h3>대회 경험</h3>
+          <p>국내와 해외 대회에 참가하며 실전 감각을 쌓았습니다.</p>
+        </article>
+        <article class="skill">
+          <h3>스트릿풋볼 이해</h3>
+          <p>파나 같은 스트릿풋볼 고유의 기술을 공부하고, 일반 축구와 다른 점을 구분해 정리합니다.</p>
+        </article>
+        <article class="skill">
+          <h3>아이디어를 직접 만드는 힘</h3>
+          <p>게임과 분석 앱을 직접 기획하고 만들어 보며, 스포츠와 기술을 연결합니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 프로젝트 -->
+  <section id="projects">
+    <div class="wrap">
+      <h2>프로젝트</h2>
+      <p class="lead">축구를 더 깊이 이해하고 즐기기 위해 만든 것들입니다.</p>
+      <div class="projects">
+        <article class="project">
+          <h3>카메라로 차는 1대1 승부차기 게임</h3>
+          <p>카메라가 키커의 다리를 인식하고, 다리 각도에 따라 슛의 방향과 힘이 결정됩니다. 골키퍼는 AI가 맡습니다.</p>
+          <ul class="tags">
+            <li>MediaPipe</li>
+            <li>카메라 인식</li>
+            <li>AI 골키퍼</li>
+          </ul>
+        </article>
+        <article class="project">
+          <h3>스트릿풋볼 스킬 정리 및 상대 분석 앱</h3>
+          <p>파나 등 스트릿풋볼 스킬을 카테고리별로 정리하고, 상대 선수의 기술 빈도수와 고유 체형을 분석해 경기 운영과 약점을 파악합니다.</p>
+          <ul class="tags">
+            <li>스킬 카테고리</li>
+            <li>기술 빈도수</li>
+            <li>체형 분석</li>
+            <li>1v1 경기 운영</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 진로목표 -->
+  <section id="career">
+    <div class="wrap">
+      <h2>진로목표</h2>
+      <p class="lead">선수로 정상에 서고, 그 경험으로 현장을 이끄는 행정가가 되겠습니다.</p>
+      <ol class="path">
+        <li class="stop">
+          <span class="when">지금</span>
+          <h3>배우고 겨루기</h3>
+          <p>레저해양스포츠학과에서 공부하고, 국내외 대회에서 경험을 쌓습니다.</p>
+        </li>
+        <li class="stop goal">
+          <span class="when">선수로서의 목표</span>
+          <h3>세계적인 선수</h3>
+          <p>스트릿풋볼에서 세계적인 선수가 되는 것이 제 첫 번째 목표입니다.</p>
+        </li>
+        <li class="stop goal">
+          <span class="when">은퇴 후</span>
+          <h3>행정가</h3>
+          <p>선수 생활을 마친 뒤에는 행정가로서 스포츠 현장에 기여하겠습니다.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 고수. All rights reserved.</span>
+    <a href="#home">맨 위로</a>
+  </div>
+</footer>
+
+<script>
+  // 모바일 메뉴 열기/닫기
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('mainNav');
+  menuBtn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.textContent = open ? '닫기' : '메뉴';
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.textContent = '메뉴';
+  }));
+
+  // 현재 보고 있는 섹션을 메뉴에 표시
+  const links = [...nav.querySelectorAll('a')];
+  const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(s => s && io.observe(s));
+</script>
+</body>
+</html>
